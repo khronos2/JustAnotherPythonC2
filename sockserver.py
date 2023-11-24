@@ -3,6 +3,17 @@
 import socket
 import sys
 
+def banner():
+    banner = """
+ _______ _______ ______ _______ ______  
+(_______|_______|_____ (_______|_____ \ 
+     _   _______ _____) )        ____) )
+ _  | | |  ___  |  ____/ |      / ____/ 
+| |_| | | |   | | |    | |_____| (_____ 
+ \___/  |_|   |_|_|     \______)_______)
+"""
+    print(banner)
+
 def comm_in(remote_target):
     print('[+] Awaiting response...')
     response = remote_target.recv(1024).decode()
@@ -54,4 +65,5 @@ if __name__ == '__main__':
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     host_ip = sys.argv[1]
     host_port = int(sys.argv[2])
+    banner()
     listener_handler()
